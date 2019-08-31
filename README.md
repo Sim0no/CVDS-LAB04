@@ -4,18 +4,23 @@
 
 | Numero | Especificación                          | Valido/no Valido |
 |--------|-----------------------------------------|------------------|
-| 1      | 0>=incorrectCount<=10 & CorrectCount>=0 | valido           |
-| 2      | CorrectCount<0                          | invalid          |
-| 3      | incorrectCount<0                        | invalid          |
-| 4      | incorrectCount>10                       | invalid          |
+| 1      | 0>=incorrectCount<=10 & CorrectCount>=0 | valid            |
+| 2      | correctCount<0 || incorrectCount<0      | invalid          |
+| 3      | incorrectCount>10                       | invalid          |
+
+Frontera
+calculateScore(int correctCount, int incorrectCount)
+
+calculateScore(0,0) Limite Inferior
+calculateScore(SIN_LIMITE,10) Limite Superior
 
 ## Clases de Equivalencia BonusScore
 
 | Numero | Especificación                                                          | Valido/no Valido |
 |--------|-------------------------------------------------------------------------|------------------|
-| 1      | CorrectCount/2 < IncorrectCount                                         | Invalid          |
-| 2      | CorrectCount<0 || IncorrectCount<0                                      | invalid          |
-| 3      | CorrectCount/2 >= IncorrectCount & CorrectCount>=0 & IncorrectCount >=0 | Valid            |
+| 1      | correctCount/2 < IncorrectCount                                         | Invalid          |
+| 2      | correctCount<0 || IncorrectCount<0                                      | invalid          |
+| 3      | correctCount/2 >= IncorrectCount & CorrectCount>=0 & IncorrectCount >=0 | Valid            |
 
 ## Clases de Equivalencia PowerBonusScore
 

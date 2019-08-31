@@ -5,7 +5,7 @@
 | Numero | Especificación                          | Valido/no Valido |
 |--------|-----------------------------------------|------------------|
 | 1      | 0>=incorrectCount<=10 & CorrectCount>=0 | valid            |
-| 2      | correctCount<0 || incorrectCount<0      | invalid          |
+| 2      | correctCount<0|| incorrectCount<0       | invalid          |
 | 3      | incorrectCount>10                       | invalid          |
 
 Frontera

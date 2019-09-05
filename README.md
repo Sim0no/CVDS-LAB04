@@ -1,4 +1,4 @@
-# CVDS-LAB04
+﻿# CVDS-LAB04   
 
 ## Clases de Equivalencia OriginalScore 
 
@@ -81,5 +81,5 @@ IncorrectCount <0 or CorrectCount<0
       calculateScore(0,0) Limite Inferior
        
      
-      
+f
 

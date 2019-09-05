@@ -1,6 +1,8 @@
 
 package hangman.model;
 
+import hangman.exceptions.GameScoreException;
+
 /**
  * BonusScore:
  *El juego inicia en 0 puntos.
@@ -15,7 +17,7 @@ package hangman.model;
  */
 public class BonusScore implements GameScore{
     @Override
-    public int calculateScore(int correctCount, int incorrectCount){
+    public int calculateScore(int correctCount, int incorrectCount)  throws GameScoreException{
         return 0;
     }
 }

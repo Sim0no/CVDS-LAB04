@@ -1,6 +1,8 @@
 
 package hangman.model;
 
+import hangman.exceptions.GameScoreException;
+
 /**
  *PowerBonusScore:
  *El juego inicia en 0 puntos.
@@ -15,8 +17,9 @@ package hangman.model;
  *@throws No se hará manejo de excepciones y se hará dentro del codigo.
  */
 public class PowerScore implements GameScore{
+
     @Override
-    public int calculateScore(int correctCount, int incorrectCount){
+    public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
         return 0;
     }
 }

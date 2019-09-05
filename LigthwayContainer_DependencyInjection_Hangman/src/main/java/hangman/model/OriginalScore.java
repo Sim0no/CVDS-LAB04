@@ -1,5 +1,6 @@
 
 package hangman.model;
+import hangman.exceptions.*;
 /**
  *OriginalScore:
  *Es el esquema actual, se inicia con 100 puntos.
@@ -10,11 +11,12 @@ package hangman.model;
  * @pos El puntaje final está entre 0 y 100 puntos
  * @param correctCount Letras Correctas  
  * @param incorrectCount  Letras Incorrectas  
- * @throws No se hará manejo de excepciones y se hará dentro del codigo.
+ * @throws GameScoreException (correctCount <0 || incorrectCount<0 || incorrectCount>10 )
  */
 public class OriginalScore implements GameScore{
+
     @Override
-    public int calculateScore(int correctCount, int incorrectCount){
+    public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
         return 0;
     }
 }

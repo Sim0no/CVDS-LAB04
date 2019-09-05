@@ -79,7 +79,4 @@ IncorrectCount <0 or CorrectCount<0
 
       calculateScore(1,0) Limite Inferior
       calculateScore(0,0) Limite Inferior
-       
-     
-f
-
+    

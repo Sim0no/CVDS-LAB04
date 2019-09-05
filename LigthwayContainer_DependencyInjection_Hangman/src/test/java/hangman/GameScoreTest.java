@@ -112,8 +112,7 @@ public class GameScoreTest {
             originalScore.calculateScore(0,0); //Limite Inferior
             originalScore.calculateScore(1,1); //(> inferior)
             originalScore.calculateScore(235,9); //(< limite superior)
-            originalScore.calculateScore(100,10); //Limite Superior
-            originalScore.calculateScore(20,11); //(> Limite superior)
+            originalScore.calculateScore(100,10); //Limite Superior            
         }
         catch(GameScoreException e){
             Assert.fail();
@@ -125,6 +124,7 @@ public class GameScoreTest {
             Assert.fail();
         }
         catch(GameScoreException e){
+            System.out.println(e.getMessage());
             Assert.assertEquals(e.getMessage(), GameScoreException.PARAMETRO_NEGATIVO);
         }
         try{
@@ -148,6 +148,13 @@ public class GameScoreTest {
         
         try{
             originalScore.calculateScore(0,12); //(> LimiteSuperior)
+            Assert.fail();
+        }
+        catch(GameScoreException e){
+            Assert.assertEquals(e.getMessage(), GameScoreException.PARAMETRO_LIMITE_PUNTUACION);
+        }
+        try{
+            originalScore.calculateScore(20,11); //(> Limite superior)  
             Assert.fail();
         }
         catch(GameScoreException e){

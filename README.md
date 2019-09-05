@@ -44,6 +44,7 @@ correctCount<0 or incorrectCount<0
       calculateScore(-1,-1) Limite Superior
 
 correctCount/2 >= incorrectCount & correctCount>=0 & incorrectCount >=0
+
       CalculateScore(1,0) Limite Inferior
       CalculateScore(0,0) Limite Inferior
 

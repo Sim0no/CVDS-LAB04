@@ -15,7 +15,7 @@ import hangman.exceptions.GameScoreException;
  *@pos El puntaje final está entre 0 y 500 puntos
  *@param correctCount Letras Correctas  
  *@param incorrectCount  Letras Incorrectas  
- *@throws No se hará manejo de excepciones y se hará dentro del codigo.
+ *@throws GameScoreException (correctCount <0 || incorrectCount<0 || pow(5,correctCount) < 8*incorrectCount || pow(5,correctCount)-8*incorrectCount>500 )
  */
 public class PowerScore implements GameScore{
 

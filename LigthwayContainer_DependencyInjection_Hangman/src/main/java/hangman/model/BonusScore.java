@@ -13,7 +13,7 @@ import hangman.exceptions.GameScoreException;
  *@pos El puntaje final es mayor o igual a 0
  *@param correctCount Letras Correctas  
  *@param incorrectCount  Letras Incorrectas  
- *@throws No se hará manejo de excepciones y se hará dentro del codigo.
+ *@throws GameScoreException correctCount < 0 || incorrectCount < 0||correctCount*2<incorrectCount.
  */
 public class BonusScore implements GameScore{
     @Override

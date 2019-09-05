@@ -28,9 +28,9 @@ incorrectCount>10
 
 | Numero | Especificación                                                          | Valido/no Valido |
 |--------|-------------------------------------------------------------------------|------------------|
-| 1      | correctCount/2 < IncorrectCount                                         | Invalid          |
+| 1      | correctCount*2 < IncorrectCount                                         | Invalid          |
 | 2      | correctCount<0 or incorrectCount<0                                      | invalid          |
-| 3      | correctCount/2 >= IncorrectCount & CorrectCount>=0 & IncorrectCount >=0 | Valid            |
+| 3      | correctCount*2 >= IncorrectCount & CorrectCount>=0 & IncorrectCount >=0 | Valid            |
 
 Frontera
 

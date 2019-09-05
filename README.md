@@ -26,15 +26,15 @@ incorrectCount>10
      
 ## Clases de Equivalencia BonusScore
 
-| Numero | Especificación                                                          | Valido/no Valido |
-|--------|-------------------------------------------------------------------------|------------------|
-| 1      | correctCount*2 < IncorrectCount                                         | Invalid          |
-| 2      | correctCount<0 or incorrectCount<0                                      | invalid          |
-| 3      | correctCount*2 >= IncorrectCount & CorrectCount>=0 & IncorrectCount >=0 | Valid            |
+| Numero | Especificación                                                             | Valido/no Valido |
+|--------|----------------------------------------------------------------------------|------------------|
+| 1      | correctCount*2 < IncorrectCount & (correctCount >= 0 & incorrectCount >=0) | Invalid          |
+| 2      | correctCount<0 or incorrectCount<0                                         | invalid          |
+| 3      | correctCount*2 >= IncorrectCount & CorrectCount>=0 & IncorrectCount >=0    | Valid            |
 
 Frontera
 
-correctCount/2 < IncorrectCount & (correctCount >= 0 & incorrectCount >=0)
+correctCount*2 < IncorrectCount & (correctCount >= 0 & incorrectCount >=0)
 
       calculateScore(0,1) Inferior
 
@@ -53,8 +53,8 @@ correctCount/2 >= incorrectCount & correctCount>=0 & incorrectCount >=0
 
 | Numero | Especificación                                                                       | Valido/no Valido |
 |--------|--------------------------------------------------------------------------------------|------------------|
-| 1      | 5^CorrectCount < 8*IncorrectCount                                                    | invalid          |
-| 2      | 5^CorrectCount -8*IncorrectCount > 500                                               | Invalid          |
+| 1      | 5^CorrectCount < 8*IncorrectCount & (IncorrectCount >=0 & CorrectCount>=0)           | invalid          |
+| 2      | 5^CorrectCount -8*IncorrectCount > 500 & (IncorrectCount >=0 & CorrectCount>=0)      | Invalid          |
 | 3      | IncorrectCount <0 or CorrectCount<0                                                  | Invalid          |
 | 4      | (5^CorrectCount >= 8*IncorrectCount) &                                               | Valid            |
 |        | (5^CorrectCount -8*IncorrectCount <= 500) & (IncorrectCount >=0 & CorrectCount >= 0) |                  |

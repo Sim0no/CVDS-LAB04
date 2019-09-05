@@ -18,7 +18,13 @@ import hangman.exceptions.GameScoreException;
 public class BonusScore implements GameScore{
     @Override
     public int calculateScore(int correctCount, int incorrectCount)  throws GameScoreException{
-        return 0;
+        if(correctCount < 0 || incorrectCount < 0){
+            throw new GameScoreException(GameScoreException.PARAMETRO_NEGATIVO);
+        }
+        else if(correctCount*2<incorrectCount){
+            throw new GameScoreException(GameScoreException.PARAMETRO_LIMITE_PUNTUACION);
+        }
+        return correctCount*10-incorrectCount*5;
     }
 }
 

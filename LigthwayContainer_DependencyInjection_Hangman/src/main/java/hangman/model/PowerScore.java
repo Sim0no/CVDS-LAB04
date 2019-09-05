@@ -1,6 +1,7 @@
 
 package hangman.model;
 
+import static com.google.common.math.IntMath.pow;
 import hangman.exceptions.GameScoreException;
 
 /**
@@ -20,6 +21,15 @@ public class PowerScore implements GameScore{
 
     @Override
     public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
-        return 0;
+        if ( correctCount <0 ||  incorrectCount < 0){
+            throw new GameScoreException(GameScoreException.PARAMETRO_NEGATIVO);
+        }
+        else if(pow(5,correctCount) < 8*incorrectCount ){
+            throw new GameScoreException(GameScoreException.PARAMETRO_LIMITE_PUNTUACION);
+        }
+        else if(pow(5,correctCount)-8*incorrectCount>500 ){
+            throw new GameScoreException(GameScoreException.PARAMETRO_LIMITE_PUNTUACION);
+        }
+        return pow(5,correctCount) - 8*incorrectCount;
     }
 }

@@ -18,13 +18,13 @@ import org.junit.Test;
  * 
  *  calculateScore(235,9) (< limite superior)
  *  calculateScore(SIN_LIMITE,10) Limite Superior
- *  calculateScore(20,11) (> Limite superior)
+ *  
  * 
  * 2. correctCount<0 or incorrectCount<0
  * 
  * Frontera
  * 
- *  calculateScore(0,0) (<Limite inferior)
+ *  
  *  calculateScore(-1,-1) Limite inferior
  *  calculateScore(-2,-2) (>Limite inferior)
  * 
@@ -47,7 +47,7 @@ import org.junit.Test;
  * Frontera
  *  
  *  calculateScore(0,1) Limite Inferior
- *  calculateScore(1,2) (> LimiteInferior)
+ *  calculateScore(1,3) (> LimiteInferior)
  * 
  * 2. correctCount<0 or incorrectCount<0
  * 
@@ -87,7 +87,7 @@ import org.junit.Test;
  * 
  * 4. (5^CorrectCount >= 8*IncorrectCount) & (5^CorrectCount -8*IncorrectCount <= 500) & (IncorrectCount >=0 & CorrectCount >= 0)
  * Frontera
- *   calculateScore(1,1) (>Limite Inferior)
+ *   calculateScore(2,1) (>Limite Inferior)
  *   calculateScore(0,0) Limite Inferior
  *  
  *  
@@ -124,7 +124,6 @@ public class GameScoreTest {
             Assert.fail();
         }
         catch(GameScoreException e){
-            System.out.println(e.getMessage());
             Assert.assertEquals(e.getMessage(), GameScoreException.PARAMETRO_NEGATIVO);
         }
         try{
@@ -177,7 +176,8 @@ public class GameScoreTest {
             Assert.assertEquals(e.getMessage(), GameScoreException.PARAMETRO_LIMITE_PUNTUACION);
         }  
         try{
-            bonusScore.calculateScore(1,2); //(> LimiteInferior)
+            bonusScore.calculateScore(1,3); //(> LimiteInferior)
+            
             Assert.fail();
         }
         catch(GameScoreException e){
@@ -206,9 +206,8 @@ public class GameScoreTest {
         //Frontera
         try{
             bonusScore.calculateScore(1,0);// Limite Inferior
-            bonusScore.calculateScore(1,1); //(> Limite Inferior)
-         
-         
+            bonusScore.calculateScore(1,1); //(> Limite Inferior)         
+            bonusScore.calculateScore(1,2); //(> LimiteInferior)
             bonusScore.calculateScore(0,0); //Limite Inferior 2
             bonusScore.calculateScore(2,0); //(> Limite Inferior 2)
         }
@@ -278,9 +277,9 @@ public class GameScoreTest {
        // 4. (5^CorrectCount >= 8*IncorrectCount) & (5^CorrectCount -8*IncorrectCount <= 500) & (IncorrectCount >=0 & CorrectCount >= 0)
        // Frontera
         try{
-            powerScore.calculateScore(1,1) ;//(>Limite Inferior)
+            powerScore.calculateScore(2,1) ;//(>Limite Inferior)
             powerScore.calculateScore(0,0) ;//Limite Inferior
-            }
+        }
         catch(GameScoreException e){
             Assert.fail();
         }

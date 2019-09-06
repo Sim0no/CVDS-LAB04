@@ -52,15 +52,11 @@ public class SwingProject {
         Injector injector = Guice.createInjector(new HangmanFactoryServices());
         return injector.getInstance(GUI.class);
     }
-    public static OriginalScore createOriginalScore(){
-        Injector injector = Guice.createInjector(new HangmanFactoryServices());
-        return injector.getInstance(OriginalScore.class);
-    }
 
     //method: main
     //purpose: the entry-point to our application
     public static void main(String[] args) {
-        createGUIUsingFactoryMethod().play();
+        createGUIUsingGuice().play();
     }
 
 }

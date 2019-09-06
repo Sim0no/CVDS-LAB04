@@ -18,7 +18,8 @@ import hangman.exceptions.GameScoreException;
  *@throws GameScoreException (correctCount <0 || incorrectCount<0 || pow(5,correctCount) < 8*incorrectCount || pow(5,correctCount)-8*incorrectCount>500 )
  */
 public class PowerScore implements GameScore{
-
+    private final int puntaje = 0;
+    private final int limite = 500;
     @Override
     public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
         if ( correctCount <0 ||  incorrectCount < 0){
@@ -31,5 +32,13 @@ public class PowerScore implements GameScore{
             throw new GameScoreException(GameScoreException.PARAMETRO_LIMITE_PUNTUACION);
         }
         return pow(5,correctCount) - 8*incorrectCount;
+    }
+
+    @Override
+    public int getScore() {
+        return puntaje;
+    }
+    public int getLimit(){
+        return limite;
     }
 }

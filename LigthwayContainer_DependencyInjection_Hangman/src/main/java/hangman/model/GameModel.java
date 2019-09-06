@@ -12,15 +12,19 @@
 ****************************************************************/ 
 package hangman.model;
 
+import hangman.exceptions.GameScoreException;
 import hangman.model.dictionary.HangmanDictionary;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class GameModel {
     private int incorrectCount;
     private int correctCount;
+    private int mutableIncorrectCount;
     private LocalDateTime dateTime;
     private int gameScore;
     private int[] lettersUsed;
@@ -34,15 +38,16 @@ public class GameModel {
     
     
    
-    public GameModel(HangmanDictionary dictionary){
+    public GameModel(HangmanDictionary dictionary,GameScore score){
         //this.dictionary = new EnglishDictionaryDataSource();
         this.dictionary=dictionary;
+        this.inyectado = score;
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
-        
+        mutableIncorrectCount = 0;
+        gameScore = inyectado.getScore();        
     }
     
     //method: reset
@@ -52,7 +57,8 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        mutableIncorrectCount = 0;
+        gameScore = inyectado.getScore();
     }
 
     //setDateTime
@@ -74,9 +80,24 @@ public class GameModel {
         }
         if(positions.size() == 0){
             incorrectCount++;
-            gameScore -= 10;
+            mutableIncorrectCount++;
+            try {
+                gameScore = inyectado.calculateScore(correctCount, mutableIncorrectCount);
+            } catch (GameScoreException ex) {
+                System.out.println(correctCount);
+                System.out.println(incorrectCount);
+                System.out.println(mutableIncorrectCount);
+                mutableIncorrectCount = 0;
+                correctCount = 0;
+                gameScore = 0;
+            }
         } else {
             correctCount += positions.size();
+            try {
+                gameScore = inyectado.calculateScore(correctCount, mutableIncorrectCount);
+            } catch (GameScoreException ex) {
+                gameScore = inyectado.getLimit();
+            }
         }
         return positions;
         
